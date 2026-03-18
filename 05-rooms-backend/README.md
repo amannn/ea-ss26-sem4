@@ -29,6 +29,7 @@ An inspiration for types in a consuming app can be taken from [`./src/types.tsx`
 // - `page=2`: The third page (note that this is an index)
 // - `size=9`: 9 items will be returned as part of a page
 // - `sort=pricePerNight`: Sort by price instead of by `createdAt` (default)
+// Example: http://localhost:3001/rooms?page=2&size=9&sort=pricePerNight
 GET /rooms{?page,size,sort}
 
 GET /rooms/{id}
