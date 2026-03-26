@@ -18,7 +18,7 @@ export default async function RootLayout({children}: LayoutProps<'/'>) {
   return (
     <html lang="en">
       <body>
-        <div className="max-w-xl mx-auto py-20">
+        <div className="max-w-xl mx-auto py-20 px-10">
           <header className="flex justify-between items-center">
             <h1>Arrrbnb</h1>
             <p>
