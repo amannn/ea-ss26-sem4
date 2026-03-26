@@ -8,18 +8,25 @@ export default async function Home() {
   async function action(initialState, data: FormData) {
     'use server';
     const message = data.get('message');
-    if (typeof message !== 'string') return;
+    if (typeof message !== 'string' || message.trim().length === 0) {
+      return {
+        error: 'Message must not be empty.',
+        data
+      };
+    }
     await addMessage(message);
 
     // Tell Next.js to return updated markup for this page
     revalidatePath('/');
+
+    // (return undefined;)
   }
 
   // Scenarios:
   // - Everything functional (ideal UX)
   // - JS not loaded yet, still works
-  // - Slow network (TODO)
-  // - Error handling (TODO)
+  // - Slow network (pending state used)
+  // - Error handling (return value from action used)
 
   return (
     <div>
